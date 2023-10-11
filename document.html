@@ -1,0 +1,410 @@
+<html>
+	<head>
+		<title>Infonovum Docker</title>
+		<link rel="icon" type="image/x-icon" href="https://www.infonovum.com/otrs-web/skins/Agent/default/img/icons/product.ico">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<style>
+			body {
+                padding: 2%;
+            }
+			
+            #content {
+                width: 80%; 
+                margin:auto; 
+                box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5); 
+                padding: 4%; 
+                font-family: Arial; 
+                font-size: 18px;
+            }
+			
+            a {
+                text-decoration: none;
+                color:dimgray;
+                line-height: 2;
+            }
+            a:hover {
+                color: black;
+            }
+            
+            .header {
+                display:flex; 
+                width:100%;
+            }
+			
+            h1 {
+                text-align:center;
+            }
+			
+            ul {
+                line-height: 1.8;
+            }
+			
+            .box1 {
+                width: 100%; 
+                height: auto; 
+                background-color: #343541; 
+                border-radius: 0.375rem;
+            }
+			
+            .cmd1 {
+                font-size: 14px; 
+                font-family: calibri; 
+                color: white; 
+                padding: 14px 0px 0px 14px;
+            }
+			
+            .box2 {
+                width: 100%; 
+                height: auto; 
+                line-height: 2; 
+                background-color: black; 
+                border-bottom-left-radius: 0.375rem; 
+                border-bottom-right-radius: 0.375rem;
+            }
+			
+            .cmd2 {
+                font-size: 14px; 
+                font-family: consolas; 
+                color: white; 
+                padding: 20px 14px; 
+                font-weight: 400;
+            }
+			
+            .span1 {
+                color:gray; 
+                text-decoration: underline;
+                text-decoration-color: red;
+            }
+			
+            .span2 {
+                color: red; 
+                text-decoration: underline;
+                text-decoration-color: gray; 
+                font-weight: bold;
+            }
+						
+			.hidden {
+                display: none;
+            }
+			
+            #scrollToTopButton {
+                position: fixed; 
+                bottom: 20px; 
+                right: 20px; 
+                background-color: black; 
+                color: white; 
+                border: none; 
+                border-radius: 10%;
+                width: 44px;
+                height: 44px; 
+                cursor: pointer;
+                transition: opacity 0.2s, transform 0.2s;
+                font-size: 36px;
+            }
+			
+            #scrollToTopButton:hover {
+                background-color: white; 
+                color: black; 
+                box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+            }
+		</style>
+	</head>
+	<body>
+		<div id=content >
+			<div class=header >
+				<div align=right style="width:50%; padding: 17px 0px 0px 6px; font-size:30px;"><span class=span1>INFO</span><span class=span2>NOVUM</span></div>
+				
+				<div style="width:50%; padding: 17px 0px 0px 6px; font-size:30px;"><span class=span1>DOC</span><span class=span2>KER</span></div>
+			</div> <br/><br/>
+			
+            <div id=index >
+                <a href=#step2> Step 01: Update linux machine </a> <br/>
+                <a href=#step3> Step 02: Install Java </a> <br/>
+                <a href=#step4> Step 03: Download Liquibase </a> <br/>
+                <a href=#step5> Step 04: Extract Liquibase </a> <br/>
+                <a href=#step6> Step 05: Set Up Environment Variables </a> <br/>
+                <a href=#step7> Step 06: Verify Installation </a> <br/>
+                <a href=#step8> Step 07: Create a Liquibase Properties File </a> <br/>
+                <a href=#step9> Step 08: Create a Changelog File </a> <br/>
+                <a href=#step10> Step 09: External changesets </a> <br/>
+                <a href=#step11> Step 10: Running Liquibase Commands </a> <br/>
+                <!--a href=#step12> Step 12: Create virtual host proxy for semaphore </a> <br/>
+                <a href=#step13> Step 13: Disable Firewall and SELinux </a> <br/>
+                <a href=#step14> Step 14: Copy the data from localhost to liquibase server </a> <br/>
+                <a href=#step15> Step 15: Create SSH key for project in liquibase server </a> <br/>
+                <a href=#step16> Step 16: liquibase semaphore GUI screen </a> <br/>
+                <a href=#step17> Step 17: liquibase semaphore project screen </a> <br/>
+                <a href=#step18> Step 18: Add Key Store in liquibase GUI </a> <br/>
+                <a href=#step19> Step 19: Add another Key Store in liquibase GUI </a> <br/-->
+                
+            </div>
+            
+			
+			<p id="step2" ><b>Step 1:</b> Update linux machine <p>
+			
+			<ul>
+				<li> dnf -y update </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# dnf -y update
+					</p>
+				</div>
+			</div> <br/>
+			
+			<p id="step3" ><b>Step 2:</b> Install Java <p>
+			
+			<ul>
+				<li> Liquibase is a Java-based tool, so we need to install Java on your CentOS system. </li>
+                <li>You can check if Java is already installed by running in linux shell by typing.</li>
+               
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# java -version
+					</p>
+				</div>
+			</div> <br/>
+
+            <ul>
+				<li>If Java is not installed, you can install OpenJDK, a popular open-source Java implementation, using the following commands.</li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# dnf install java-11-openjdk-devel
+					</p>
+				</div>
+			</div> <br/>
+			
+			<p id="step4" ><b>Step 3:</b> Download Liquibase <p>
+			
+			<ul>
+				<li>Visit the Liquibase download page at https://www.liquibase.org/download.</li>
+                <li>Select the latest version of Liquibase and download in ZIP or TAR.GZ format for your platform.</li>
+			</ul>
+			 <br/>
+			
+			<p id="step5" ><b>Step 4:</b> Extract Liquibase <p>
+			
+			<ul>
+				<li> Certainly, you can use either the `unzip` command for ZIP files or the `tar` command for TAR.GZ files to extract the contents of the Liquibase binary distribution, depending on the format you downloaded.</li>
+                <li> Here are the commands for both formats: </li>
+                <p>For ZIP Format:</p>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# unzip liquibase-version-bin.zip
+					</p>
+				</div>
+			</div>
+			<ul>
+				<li> Replace version with the actual version number you downloaded. </li>
+                <p>For TAR.GZ Format:</p>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# tar -xzvf liquibase-version-bin.tar.gz
+					</p>
+				</div>
+			</div> 
+            <ul>
+                <li>Replace version with the actual version number you downloaded.</li>
+                <li>Choose the appropriate command based on the format of the Liquibase binary distribution you downloaded. Once extracted, you can proceed with configuration of Liquibase.</li>
+            </ul><br/>
+			
+			<p id="step6" ><b>Step 5:</b> Set Up Environment Variables <p>
+			<ul>
+				<li> You can add Liquibase to your system path and set the LIQUIBASE_HOME environment variable.
+                <li> Add the following lines to your ~/.bashrc or ~/.bash_profile file or equivalent if you use a different shell. </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# vi ~/.bashrc 
+					<br/><br/>
+                    export LIQUIBASE_HOME=/path/to/liquibase<br/>
+                    export PATH=$PATH:$LIQUIBASE_HOME
+					</p>
+				</div>
+			</div>
+			<ul>
+				<li> Replace  /path/to/liquibase with the actual path to the Liquibase directory. </li>
+			</ul>
+			<br/>
+			
+			<p id="step7" ><b>Step 6:</b> Verify Installation <p>
+			
+			<ul>
+				<li> Reload your shell profile or open a new terminal window to apply the environment variable changes. </li>
+                <li> You can now verify the Liquibase installation by running. </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# liquibase --version <br/>
+					<img width="100%" src=version.PNG /> 
+					</p>
+				</div>
+			</div> <br/>
+			
+			<p id="step8" ><b>Step 7:</b> Create a Liquibase Properties File <p>
+			
+			<ul>
+                <li>Choose a directory where you want to set up your Liquibase project. You can create a new directory for this purpose.</li>
+				<li> Create a `liquibase.properties` file in your project directory or any other location where you plan to manage your database changes. </li>
+                <li> Here's a sample `liquibase.properties` file. </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# vi liquibase.properties <br>
+					Liquibase.properties:<br>
+# Database configuration<br>
+driver: com.mysql.cj.jdbc.Driver<br>
+url: jdbc:mysql://localhost:3306/mydatabase<br>
+username: dbuser<br>
+password: dbpassword
+</p>
+				</div>
+			</div> 
+            <ul>
+                <li>Replace the database configuration details with your database's connection information. Modify the `changeLogFile` to point to your changelog XML or YAML file.</li>
+            </ul><br/>
+			
+			<p id="step9" ><b>Step 8:</b> Create a Changelog File <p>
+			
+			<ul>
+				<li> Create a changelog XML or YAML file that describes the changes you want to make to your database. Here's an example of a simple changelog.yaml file. </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# vi changelog.yaml <br><br>
+                    
+databaseChangeLog:<br>
+&nbsp;&nbsp;- changeSet:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    id: create-bank-table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    author: bankingapp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    changes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      - sqlFile:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          path: changesets/create-bank-table.sql<br>
+&nbsp;&nbsp;- changeSet:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    id: create-account-table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    author: bankingapp<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    changes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      - sqlFile:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          path: changesets/create-account-table.sql<br>
+
+					</p>
+				</div>
+			</div>
+			<br/>
+			
+			<p id="step10" ><b>Step 9:</b> External changesets <p>
+			
+			<ul>
+				<li> Certainly, if you want to create external SQL changesets for use with Liquibase in SQL format, you can create individual SQL files for each changeset. Each SQL file will contain the SQL statements you want to execute.</li>
+                <li> Here's an example of two external SQL changesets in SQL format. </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# vi create-bank-table.sql <br/><br/>
+					CREATE TABLE Bank (<br/>
+    name VARCHAR2(100) NOT NULL,<br/>
+    location VARCHAR2(255),<br/>
+    created_date DATE DEFAULT SYSDATE<br/>
+    );
+					</p>
+				</div>
+			</div>
+            <div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# vi create-account-table.sql <br/><br/>
+                    CREATE TABLE Account (<br>
+    account_number VARCHAR2(20) NOT NULL UNIQUE,<br>
+    balance NUMBER(10, 2) DEFAULT 0,<br>
+    owner_name VARCHAR2(100) NOT NULL,<br>
+    created_date DATE DEFAULT SYSDATE<br>
+);
+					</p>
+				</div>
+			</div> 
+            
+            <ul>
+               <li>Each SQL file represents a single changeset.</li> 
+               <li>The comments provide metadata such as the author and description.</li>
+               <li>The SQL statements inside the files define the database changes.</li>
+               <li>You can create as many SQL changeset files as needed for your Liquibase project.</li>
+               <li>These files can contain various SQL statements like table creations, index additions, data modifications, etc., depending on your database schema evolution requirements.</li>
+               <li>After creating these external SQL changesets, you can reference them in your Liquibase YAML or XML changelog file.</li>
+               <li>The sqlFile changeset within the YAML/XML changelog should specify the path to the external SQL file, and Liquibase will execute the SQL statements in those files when you run the liquibase update command.</li>
+            </ul><br/>
+			<p id="step11" ><b>Step 10:</b> Running Liquibase Commands <p>
+			
+			<ul>
+				<li> You can now use Liquibase commands to manage your database schema. For example, to apply changes from your changelog file, use the following command. </li>
+			</ul>
+			<div class=box1>
+				<p class=cmd1> Shell </p>
+				<div class=box2>
+					<p class=cmd2> 
+					[root@liquibase ~]# liquibase update <br/><br/>
+					<img width="100%" src=execution.PNG /> 
+					</p>
+				</div>
+			</div>
+			<ul>
+				<li>Remember to replace the placeholder values in the `liquibase.properties` file and the changelog file with your actual database and changelog details.</li>
+                <li>This guide covers the basic installation and configuration of Liquibase on CentOS. Depending on your specific database and use case, you may need to install database-specific drivers and configure Liquibase accordingly. </li>
+			</ul>
+            
+		</div>
+		<button id="scrollToTopButton" class="hidden"><b>&#8593;</b></button>
+		<script>
+			$(document).ready(function() {
+				var scrollToTopButton = $("#scrollToTopButton");
+
+				// Show/hide the button and add a reveal animation
+				$(window).scroll(function() {
+					if ($(this).scrollTop() > 100) {
+						scrollToTopButton.removeClass("hidden");
+						scrollToTopButton.css("opacity", "1");
+						scrollToTopButton.css("transform", "scale(1)");
+					} else {
+						scrollToTopButton.css("opacity", "0");
+						scrollToTopButton.css("transform", "scale(0)");
+						setTimeout(function() {
+							scrollToTopButton.addClass("hidden");
+						}, 30);
+					}
+				});
+
+				// Smooth scroll to the top when the button is clicked
+				scrollToTopButton.click(function() {
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>
